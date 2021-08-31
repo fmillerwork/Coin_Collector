@@ -5,8 +5,184 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coin_Collector"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Coin Manager" Height="560" Width="524">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
+        <StackPanel Margin="4" Grid.Column="0">
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Rechercher</Label>
+            <ComboBox x:Name="ValueCB" Margin="4" SelectedIndex="0">
+                <ComboBoxItem>Valeur...</ComboBoxItem>
+                <ComboBoxItem>2€</ComboBoxItem>
+                <ComboBoxItem>1€</ComboBoxItem>
+                <ComboBoxItem>0.50€</ComboBoxItem>
+                <ComboBoxItem>0.20€</ComboBoxItem>
+                <ComboBoxItem>0.10€</ComboBoxItem>
+                <ComboBoxItem>0.05€</ComboBoxItem>
+                <ComboBoxItem>0.02€</ComboBoxItem>
+                <ComboBoxItem>0.01€</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="YearCB" Margin="4" SelectedIndex="0">
+                <ComboBoxItem>Année...</ComboBoxItem>
+                <ComboBoxItem>2021</ComboBoxItem>
+                <ComboBoxItem>2020</ComboBoxItem>
+                <ComboBoxItem>2019</ComboBoxItem>
+                <ComboBoxItem>2018</ComboBoxItem>
+                <ComboBoxItem>2017</ComboBoxItem>
+                <ComboBoxItem>2016</ComboBoxItem>
+                <ComboBoxItem>2015</ComboBoxItem>
+                <ComboBoxItem>2014</ComboBoxItem>
+                <ComboBoxItem>2013</ComboBoxItem>
+                <ComboBoxItem>2012</ComboBoxItem>
+                <ComboBoxItem>2011</ComboBoxItem>
+                <ComboBoxItem>2010</ComboBoxItem>
+                <ComboBoxItem>2009</ComboBoxItem>
+                <ComboBoxItem>2008</ComboBoxItem>
+                <ComboBoxItem>2007</ComboBoxItem>
+                <ComboBoxItem>2005</ComboBoxItem>
+                <ComboBoxItem>2004</ComboBoxItem>
+                <ComboBoxItem>2003</ComboBoxItem>
+                <ComboBoxItem>2002</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="CultureCB" Margin="4" SelectedIndex="0">
+                <ComboBoxItem>Culture...</ComboBoxItem>
+                <ComboBoxItem>Allemagne</ComboBoxItem>
+                <ComboBoxItem>Andorre</ComboBoxItem>
+                <ComboBoxItem>Autriche</ComboBoxItem>
+                <ComboBoxItem>Belgique</ComboBoxItem>
+                <ComboBoxItem>Chypre</ComboBoxItem>
+                <ComboBoxItem>Estonie</ComboBoxItem>
+                <ComboBoxItem>Espagne</ComboBoxItem>
+                <ComboBoxItem>Finlande</ComboBoxItem>
+                <ComboBoxItem>France</ComboBoxItem>
+                <ComboBoxItem>Grèce</ComboBoxItem>
+                <ComboBoxItem>Italie</ComboBoxItem>
+                <ComboBoxItem>Irlande</ComboBoxItem>
+                <ComboBoxItem>Lettonie</ComboBoxItem>
+                <ComboBoxItem>Lituanie</ComboBoxItem>
+                <ComboBoxItem>Luxembourg</ComboBoxItem>
+                <ComboBoxItem>Malte</ComboBoxItem>
+                <ComboBoxItem>Monaco</ComboBoxItem>
+                <ComboBoxItem>Pays-Bas</ComboBoxItem>
+                <ComboBoxItem>Portugal</ComboBoxItem>
+                <ComboBoxItem>Saint-Marin</ComboBoxItem>
+                <ComboBoxItem>Slovaquie</ComboBoxItem>
+                <ComboBoxItem>Slovénie</ComboBoxItem>
+                <ComboBoxItem>Vatican</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="StateCB" Margin="4" SelectedIndex="0">
+                <ComboBox.ToolTip>
+                    <TextBlock>
+                    AB : Assez beau
+                    | Relief restant : 10%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : non
+                    | Absence de chocs : non
+                    | Absence de rayures : rayures visibles à l'œil 
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    B : Beau
+                    | Relief restant : 25 %
+                    | Pièce identifiable : oui
+                    | Légendes lisibles : difficilement
+                    | Reliefs complets : non
+                    | Absence de chocs : non
+                    | Absence de rayures : rayures visibles à l'œil
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    TB : Très beau
+                    | Relief restant : 50%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : reliefs partiels
+                    | Absence de chocs : non
+                    | Absence de rayures : rayures visibles à l'œil
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    TTB : Très très beau
+                    | Relief restant : 75%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : rayures visibles à l'œil
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    SUP : Superbe
+                    | Relief restant : 90%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : éraflures visibles à la loupe
+                    | Velours de frappe : léger
+                    <LineBreak /> 
+                    SPL : Splendide
+                    | Relief restant : 100%
+                    | Pièce identifiable : oui
+                    | Légendes lisibles : oui
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : oui
+                    | Velours de frappe : oui, sauf sur les points hauts
+                    <LineBreak /> 
+                    FDC : Fleur de coin
+                    | Relief restant : 100%
+                    | Pièce identifiable : oui
+                    | Légendes lisibles : oui
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : oui
+                    | Velours de frappe : oui
+                    </TextBlock>
+                </ComboBox.ToolTip>
+                <ComboBoxItem>État de conservation...</ComboBoxItem>
+                <ComboBoxItem>FDC</ComboBoxItem>
+                <ComboBoxItem>SPL</ComboBoxItem>
+                <ComboBoxItem>SUP</ComboBoxItem>
+                <ComboBoxItem>TTB</ComboBoxItem>
+                <ComboBoxItem>TB</ComboBoxItem>
+                <ComboBoxItem>B</ComboBoxItem>
+                <ComboBoxItem>AB</ComboBoxItem>
+            </ComboBox>
+            <TextBox Margin="4" Text="Description..."></TextBox>
+            <TextBox x:Name="LocalisationTxtBox" Margin="4" Text="Localisation..." IsReadOnly="True"></TextBox>
+            <Button Margin="4" Click="Search_Click">Rechercher</Button>
+            <Button Margin="4" Click="NewCoin_Click">Nouvelle pièce</Button>
+            
+            <Button Margin="4" Click="SaveChanges_Click">Enregistrer</Button>
+            <Button Margin="4" Click="RemoveCoin_Click">Supprimer</Button>
+        </StackPanel>
+
+        <ListBox ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoin}" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label>Valeur</Label>
+                        <TextBlock Text="{Binding Value}" Margin="4" />
+                        <Label>Année</Label>
+                        <TextBlock Text="{Binding Year}" Margin="4" FontWeight="Bold" />
+                        <Label>Culture</Label>
+                        <TextBlock Text="{Binding Culture}" Margin="4" FontWeight="Bold" />
+                        <Label>Localisation</Label>
+                        <TextBlock Text="{Binding Location}" Margin="4" FontWeight="Bold" />
+                        <Label>Description</Label>
+                        <TextBlock Text="{Binding Description}" Margin="4" FontWeight="Bold" />
+                        <Label>State</Label>
+                        <TextBlock Text="{Binding State}" Margin="4" FontWeight="Bold" />
+                        <Button Click="RemoveCoin_Click">
+                            <Image Source="Images\remove.png"></Image>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
+
+
+
 </Window>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Coin_Collector.View;
+using Coin_Collector.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,40 @@ namespace Coin_Collector
     /// </summary>
     public partial class MainWindow : Window
     {
+        NewCoinWindow newCoinWindow;
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
+
+        private void SaveChanges_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO
+        }
+
+        private void RemoveCoin_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO
+        }
+
+        private void NewCoin_Click(object sender, RoutedEventArgs e)
+        {
+            if (!NewCoinWindow.IsDisplayed)
+            {
+                newCoinWindow = new NewCoinWindow();
+                newCoinWindow.Show();
+            }
+        }
+
+
+
+
+
     }
 }

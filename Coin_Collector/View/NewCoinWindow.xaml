@@ -1,0 +1,145 @@
+﻿<Window x:Class="Coin_Collector.View.NewCoinWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Coin_Collector.View"
+        mc:Ignorable="d"
+        Title="NewCoinWindow" Closing="Window_Closing" Height="250" Width="200" MaxHeight="250" MaxWidth="200" MinHeight="250" MinWidth="200">
+    <StackPanel Margin="4">
+        <ComboBox Margin="4" SelectedIndex="0">
+            <ComboBoxItem>2€</ComboBoxItem>
+            <ComboBoxItem>1€</ComboBoxItem>
+            <ComboBoxItem>0.50€</ComboBoxItem>
+            <ComboBoxItem>0.20€</ComboBoxItem>
+            <ComboBoxItem>0.10€</ComboBoxItem>
+            <ComboBoxItem>0.05€</ComboBoxItem>
+            <ComboBoxItem>0.02€</ComboBoxItem>
+            <ComboBoxItem>0.01€</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Margin="4" SelectedIndex="0">
+            <ComboBoxItem>2021</ComboBoxItem>
+            <ComboBoxItem>2020</ComboBoxItem>
+            <ComboBoxItem>2019</ComboBoxItem>
+            <ComboBoxItem>2018</ComboBoxItem>
+            <ComboBoxItem>2017</ComboBoxItem>
+            <ComboBoxItem>2016</ComboBoxItem>
+            <ComboBoxItem>2015</ComboBoxItem>
+            <ComboBoxItem>2014</ComboBoxItem>
+            <ComboBoxItem>2013</ComboBoxItem>
+            <ComboBoxItem>2012</ComboBoxItem>
+            <ComboBoxItem>2011</ComboBoxItem>
+            <ComboBoxItem>2010</ComboBoxItem>
+            <ComboBoxItem>2009</ComboBoxItem>
+            <ComboBoxItem>2008</ComboBoxItem>
+            <ComboBoxItem>2007</ComboBoxItem>
+            <ComboBoxItem>2005</ComboBoxItem>
+            <ComboBoxItem>2004</ComboBoxItem>
+            <ComboBoxItem>2003</ComboBoxItem>
+            <ComboBoxItem>2002</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Margin="4" SelectedIndex="8">
+            <ComboBoxItem>Allemagne</ComboBoxItem>
+            <ComboBoxItem>Andorre</ComboBoxItem>
+            <ComboBoxItem>Autriche</ComboBoxItem>
+            <ComboBoxItem>Belgique</ComboBoxItem>
+            <ComboBoxItem>Chypre</ComboBoxItem>
+            <ComboBoxItem>Estonie</ComboBoxItem>
+            <ComboBoxItem>Espagne</ComboBoxItem>
+            <ComboBoxItem>Finlande</ComboBoxItem>
+            <ComboBoxItem>France</ComboBoxItem>
+            <ComboBoxItem>Grèce</ComboBoxItem>
+            <ComboBoxItem>Italie</ComboBoxItem>
+            <ComboBoxItem>Irlande</ComboBoxItem>
+            <ComboBoxItem>Lettonie</ComboBoxItem>
+            <ComboBoxItem>Lituanie</ComboBoxItem>
+            <ComboBoxItem>Luxembourg</ComboBoxItem>
+            <ComboBoxItem>Malte</ComboBoxItem>
+            <ComboBoxItem>Monaco</ComboBoxItem>
+            <ComboBoxItem>Pays-Bas</ComboBoxItem>
+            <ComboBoxItem>Portugal</ComboBoxItem>
+            <ComboBoxItem>Saint-Marin</ComboBoxItem>
+            <ComboBoxItem>Slovaquie</ComboBoxItem>
+            <ComboBoxItem>Slovénie</ComboBoxItem>
+            <ComboBoxItem>Vatican</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Margin="4" SelectedIndex="3">
+            <ComboBox.ToolTip>
+                <TextBlock>
+                    AB : Assez beau
+                    | Relief restant : 10%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : non
+                    | Absence de chocs : non
+                    | Absence de rayures : rayures visibles à l'œil 
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    B : Beau
+                    | Relief restant : 25 %
+                    | Pièce identifiable : oui
+                    | Légendes lisibles : difficilement
+                    | Reliefs complets : non
+                    | Absence de chocs : non
+                    | Absence de rayures : rayures visibles à l'œil
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    TB : Très beau
+                    | Relief restant : 50%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : reliefs partiels
+                    | Absence de chocs : non
+                    | Absence de rayures : rayures visibles à l'œil
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    TTB : Très très beau
+                    | Relief restant : 75%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : rayures visibles à l'œil
+                    | Velours de frappe : non
+                    <LineBreak /> 
+                    SUP : Superbe
+                    | Relief restant : 90%
+                    | Pièce identifiable : difficilement
+                    | Légendes lisibles : non
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : éraflures visibles à la loupe
+                    | Velours de frappe : léger
+                    <LineBreak /> 
+                    SPL : Splendide
+                    | Relief restant : 100%
+                    | Pièce identifiable : oui
+                    | Légendes lisibles : oui
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : oui
+                    | Velours de frappe : oui, sauf sur les points hauts
+                    <LineBreak /> 
+                    FDC : Fleur de coin
+                    | Relief restant : 100%
+                    | Pièce identifiable : oui
+                    | Légendes lisibles : oui
+                    | Reliefs complets : oui
+                    | Absence de chocs : oui
+                    | Absence de rayures : oui
+                    | Velours de frappe : oui
+                </TextBlock>
+            </ComboBox.ToolTip>
+            <ComboBoxItem>FDC</ComboBoxItem>
+            <ComboBoxItem>SPL</ComboBoxItem>
+            <ComboBoxItem>SUP</ComboBoxItem>
+            <ComboBoxItem>TTB</ComboBoxItem>
+            <ComboBoxItem>TB</ComboBoxItem>
+            <ComboBoxItem>B</ComboBoxItem>
+            <ComboBoxItem>AB</ComboBoxItem>
+        </ComboBox>
+        <TextBox Margin="4" Text="Desciption"></TextBox>
+        <TextBox x:Name="LocalisationTxtBox" Margin="4" Text="Localisation" IsReadOnly="True"></TextBox>
+        <Button Margin="4">Ajouter</Button>
+    </StackPanel>
+</Window>
