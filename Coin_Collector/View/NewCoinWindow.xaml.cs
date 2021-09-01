@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Coin_Collector.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -28,6 +29,11 @@ namespace Coin_Collector.View
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             IsDisplayed = false;
+        }
+
+        private void AddCoin_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainViewModel)DataContext).AddCoin(ValueCB.Text, YearCB.Text, CultureCB.Text, DescriptionTxtBox.Text, StateCB.Text);
         }
     }
 }

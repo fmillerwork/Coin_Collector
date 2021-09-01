@@ -26,5 +26,18 @@ namespace Coin_Collector.ViewModel
             get => selectedCoin;
             set => SetProperty(ref selectedCoin, value);
         }
+
+        public void AddCoin(string value, string year, string culture, string description, string state)
+        {
+            var model = new Coin()
+            {
+                Value = value,
+                Year = year,
+                Culture = culture,
+                Description = description,
+                State = state
+            };
+            Coins.Add(new CoinViewModel(model));
+        }
     }
 }

@@ -34,21 +34,23 @@ namespace Coin_Collector.ViewModel
             set { _model.Culture = value; OnPropertyChanged(); }
         }
 
-        public string Localisation
+        public Location Localisation
         {
-            get => _model.Localisation;
-            set { _model.Localisation = value; OnPropertyChanged(); }
+            get => _model.Location;
+            set { _model.Location = value; OnPropertyChanged(); }
         }
         public string Description
         {
             get => _model.Description;
             set { _model.Description = value; OnPropertyChanged(); }
         }
-        //public string State
-        //{
-        //    get => _model.State;
-        //    set { _model.State = value; OnPropertyChanged(); }
-        //}
+
+        public string State
+        {
+            get => _model.State;
+            set { _model.State = value; OnPropertyChanged(); }
+        }
+
 
 
     }

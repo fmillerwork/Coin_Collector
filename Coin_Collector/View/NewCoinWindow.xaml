@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="NewCoinWindow" Closing="Window_Closing" Height="250" Width="200" MaxHeight="250" MaxWidth="200" MinHeight="250" MinWidth="200">
     <StackPanel Margin="4">
-        <ComboBox Margin="4" SelectedIndex="0">
+        <ComboBox x:Name="ValueCB" Margin="4" SelectedIndex="0">
             <ComboBoxItem>2€</ComboBoxItem>
             <ComboBoxItem>1€</ComboBoxItem>
             <ComboBoxItem>0.50€</ComboBoxItem>
@@ -17,7 +17,7 @@
             <ComboBoxItem>0.02€</ComboBoxItem>
             <ComboBoxItem>0.01€</ComboBoxItem>
         </ComboBox>
-        <ComboBox Margin="4" SelectedIndex="0">
+        <ComboBox x:Name="YearCB" Margin="4" SelectedIndex="0">
             <ComboBoxItem>2021</ComboBoxItem>
             <ComboBoxItem>2020</ComboBoxItem>
             <ComboBoxItem>2019</ComboBoxItem>
@@ -38,7 +38,7 @@
             <ComboBoxItem>2003</ComboBoxItem>
             <ComboBoxItem>2002</ComboBoxItem>
         </ComboBox>
-        <ComboBox Margin="4" SelectedIndex="8">
+        <ComboBox x:Name="CultureCB" Margin="4" SelectedIndex="8">
             <ComboBoxItem>Allemagne</ComboBoxItem>
             <ComboBoxItem>Andorre</ComboBoxItem>
             <ComboBoxItem>Autriche</ComboBoxItem>
@@ -63,7 +63,7 @@
             <ComboBoxItem>Slovénie</ComboBoxItem>
             <ComboBoxItem>Vatican</ComboBoxItem>
         </ComboBox>
-        <ComboBox Margin="4" SelectedIndex="3">
+        <ComboBox x:Name="StateCB" Margin="4" SelectedIndex="3">
             <ComboBox.ToolTip>
                 <TextBlock>
                     AB : Assez beau
@@ -138,8 +138,29 @@
             <ComboBoxItem>B</ComboBoxItem>
             <ComboBoxItem>AB</ComboBoxItem>
         </ComboBox>
-        <TextBox Margin="4" Text="Desciption"></TextBox>
-        <TextBox x:Name="LocalisationTxtBox" Margin="4" Text="Localisation" IsReadOnly="True"></TextBox>
-        <Button Margin="4">Ajouter</Button>
+        <TextBox x:Name="DescriptionTxtBox" Margin="4" Text="Desciption"></TextBox>
+        <Grid Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox IsReadOnly="True" Margin="4" Grid.Column="0" ToolTip="Numéro de page"/>
+            <ComboBox Margin="4" Grid.Column="1" ToolTip="Numéro de ligne">
+                <ComboBoxItem>A</ComboBoxItem>
+                <ComboBoxItem>B</ComboBoxItem>
+                <ComboBoxItem>C</ComboBoxItem>
+                <ComboBoxItem>D</ComboBoxItem>
+                <ComboBoxItem>E</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Margin="4" Grid.Column="2" ToolTip="Numéro de colonne" SelectedValue="A">
+                <ComboBoxItem>A</ComboBoxItem>
+                <ComboBoxItem>B</ComboBoxItem>
+                <ComboBoxItem>C</ComboBoxItem>
+                <ComboBoxItem>D</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        
+        <Button Margin="4" Click="AddCoin_Click">Ajouter</Button>
     </StackPanel>
 </Window>

@@ -48,7 +48,10 @@ namespace Coin_Collector
         {
             if (!NewCoinWindow.IsDisplayed)
             {
-                newCoinWindow = new NewCoinWindow();
+                newCoinWindow = new NewCoinWindow()
+                {
+                    DataContext = DataContext
+                };
                 newCoinWindow.Show();
             }
         }
