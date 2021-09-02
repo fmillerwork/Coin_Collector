@@ -14,37 +14,38 @@
 
         <StackPanel Margin="4" Grid.Column="0">
             <!-- Infos monnaie sélectionnée -->
-            
             <Label FontWeight="Bold" HorizontalAlignment="Center">Infos Monnaie</Label>
-            <ComboBox Margin="4" SelectedItem="{Binding SelectedCoin.Value}" ItemsSource="{Binding CoinValues}" IsEnabled="{Binding CBIsEnabled}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Value}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <ComboBox x:Name="YearCB" Margin="4" SelectedItem="{Binding SelectedCoin.Year}" ItemsSource="{Binding CoinYears}" IsEnabled="{Binding CBIsEnabled}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Year}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <ComboBox x:Name="CultureCB" Margin="4" SelectedItem="{Binding SelectedCoin.Culture}" ItemsSource="{Binding CoinCultures}" IsEnabled="{Binding CBIsEnabled}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Culture}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <ComboBox x:Name="StateCB" Margin="4" SelectedItem="{Binding SelectedCoin.State}" ItemsSource="{Binding CoinStates}" IsEnabled="{Binding CBIsEnabled}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding State}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-                <ComboBox.ToolTip>
-                    <TextBlock>
+            <Border BorderThickness="1" Margin="4" Padding="4" BorderBrush="DarkGray">
+                <StackPanel Orientation="Vertical">
+                    <ComboBox Margin="4" SelectedItem="{Binding SelectedCoin.Value}" ItemsSource="{Binding CoinValues}" IsEnabled="{Binding CBIsEnabled}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Value}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox x:Name="YearCB" Margin="4" SelectedItem="{Binding SelectedCoin.Year}" ItemsSource="{Binding CoinYears}" IsEnabled="{Binding CBIsEnabled}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Year}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox x:Name="CultureCB" Margin="4" SelectedItem="{Binding SelectedCoin.Culture}" ItemsSource="{Binding CoinCultures}" IsEnabled="{Binding CBIsEnabled}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Culture}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox x:Name="StateCB" Margin="4" SelectedItem="{Binding SelectedCoin.State}" ItemsSource="{Binding CoinStates}" IsEnabled="{Binding CBIsEnabled}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding State}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.ToolTip>
+                            <TextBlock>
                     AB : Assez beau
                     | Relief restant : 10%
                     | Pièce identifiable : difficilement
@@ -107,25 +108,27 @@
                     | Absence de chocs : oui
                     | Absence de rayures : oui
                     | Velours de frappe : oui
-                    </TextBlock>
-                </ComboBox.ToolTip>
-            </ComboBox>
-            <TextBox x:Name="LocalisationTxtBox" Margin="4" Text="{Binding SelectedCoin.Location.LocationString}" IsEnabled="{Binding CBIsEnabled}" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox>
-            <Label HorizontalAlignment="Center" Margin="4,4,4,0">Description</Label>
-            <TextBox x:Name="DescriptionTxtBox" Margin="4,0,4,4" Height="50" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding SelectedCoin.Description}" IsEnabled="{Binding CBIsEnabled}"></TextBox>
+                            </TextBlock>
+                        </ComboBox.ToolTip>
+                    </ComboBox>
+                    <TextBox x:Name="LocalisationTxtBox" Margin="4" Text="{Binding SelectedCoin.Location.LocationString}" IsEnabled="{Binding CBIsEnabled}" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox>
+                    <Label HorizontalAlignment="Center" Margin="4,4,4,0">Description</Label>
+                    <TextBox x:Name="DescriptionTxtBox" Margin="4,0,4,0" Height="50" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding SelectedCoin.Description}" IsEnabled="{Binding CBIsEnabled}"></TextBox>
 
-            <Grid HorizontalAlignment="Center" Margin="4">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <!--<Button Grid.Column="1" Margin="4" Padding="8,4" FontSize="13" FontWeight="DemiBold" Click="RemoveCoin_Click">Supprimer</Button>-->
-            </Grid>
-            <Separator Margin="4"/>
+                    <Grid HorizontalAlignment="Center" Margin="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <!--<Button Grid.Column="1" Margin="4" Padding="8,4" FontSize="13" FontWeight="DemiBold" Click="RemoveCoin_Click">Supprimer</Button>-->
+                    </Grid>
+                </StackPanel>
+            </Border>
+
             <!-- Recherche -->
-            <StackPanel Orientation="Vertical">
-                <Label HorizontalAlignment="Center" FontWeight="Bold">Rechercher</Label>
-                <StackPanel>
+            <Label HorizontalAlignment="Center" FontWeight="Bold" Margin="4,4,4,0">Rechercher</Label>
+            <Border BorderThickness="1" Margin="4" Padding="4" BorderBrush="DarkGray">
+                <StackPanel Orientation="Vertical">
                     <ComboBox x:Name="SearchValueCB" Margin="4" ItemsSource="{Binding CoinValues}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -158,7 +161,7 @@
                     <Button Margin="4" Click="Search_Click">Rechercher</Button>
                     <Button Margin="4" Click="ResetSearch_Click">Reset</Button>
                 </StackPanel>
-            </StackPanel>
+            </Border>
         </StackPanel>
         
         
