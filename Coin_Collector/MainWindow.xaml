@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coin_Collector"
         mc:Ignorable="d"
-        Title="Coin Manager" Height="560" Width="524">
+        Title="Coin Manager" Height="550" Width="520">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -170,41 +170,43 @@
             <Label FontWeight="Bold" HorizontalAlignment="Center" DockPanel.Dock="Top">Monnaies</Label>
             <Button Margin="4" Padding="8,4" DockPanel.Dock="Bottom" FontSize="13" FontWeight="DemiBold" Click="SaveChanges_Click">Enregistrer</Button>
             <Button Margin="4" Padding="8,4" DockPanel.Dock="Bottom" FontSize="13" FontWeight="DemiBold" Click="NewCoin_Click">Nouvelle pièce</Button>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                <ListBox ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoin}" Margin="4">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Visibility="{Binding Visibility}">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0">Valeur</Label>
-                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Value.Value}" Margin="4" FontWeight="SemiBold"/>
-                                    <Label Grid.Row="1" Grid.Column="0">Année</Label>
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Year.Year}" Margin="4" FontWeight="SemiBold"/>
-                                    <Label Grid.Row="2" Grid.Column="0">Culture</Label>
-                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Culture.Culture}" Margin="4" FontWeight="SemiBold"/>
-                                    <Label Grid.Row="3" Grid.Column="0">Localisation</Label>
-                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Location.LocationString}" Margin="4" FontWeight="SemiBold"/>
-                                    <!--<Button Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Click="RemoveCoin_ListClick">
+            <Border BorderBrush="DarkGray" BorderThickness="1" Margin="4">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <ListBox ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoin}" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Visibility="{Binding Visibility}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0">Valeur</Label>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Value.Value}" Margin="4" FontWeight="SemiBold"/>
+                                        <Label Grid.Row="1" Grid.Column="0">Année</Label>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Year.Year}" Margin="4" FontWeight="SemiBold"/>
+                                        <Label Grid.Row="2" Grid.Column="0">Culture</Label>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Culture.Culture}" Margin="4" FontWeight="SemiBold"/>
+                                        <Label Grid.Row="3" Grid.Column="0">Localisation</Label>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Location.LocationString}" Margin="4" FontWeight="SemiBold"/>
+                                        <!--<Button Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Click="RemoveCoin_ListClick">
                                         <Image Height="20" Source="Images\remove.png"></Image>
                                     </Button>-->
-                                </Grid>
-                                <Separator/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </ScrollViewer>
+                                    </Grid>
+                                    <Separator/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </Border>
         </DockPanel>
     </Grid>
 
