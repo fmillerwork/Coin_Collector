@@ -192,18 +192,31 @@ namespace Coin_Collector.ViewModel
             }
         }
 
-        public void UpdateCoinsDiplay(string value = null, string year = null, string culture = null, string location = null)
+        public void ApplySearchFilter(CoinValue value, CoinYear year, CoinCulture culture, string location)
         {
-            //CoinsDisplay.Clear();
-            //if(value != null)
-            //CoinsDisplay = (ObservableCollection<CoinViewModel>)Coins.Select(x => x.Value == value);
-            //if(year != null)
-            //CoinsDisplay = (ObservableCollection<CoinViewModel>)Coins.Select(x => x.Year == year);
-            //if(culture != null)
-            //CoinsDisplay = (ObservableCollection<CoinViewModel>)Coins.Select(x => x.Culture == culture);
-            //if(location != null)
-            //CoinsDisplay = (ObservableCollection<CoinViewModel>)Coins.Select(x => x.Location.ToString() == location);
-            // TODO
+            foreach (var coinViewModel in Coins)
+                coinViewModel.Visibility = System.Windows.Visibility.Collapsed;
+
+            List<CoinViewModel> matchingCoins = Coins.ToList();
+            if (value != null)
+            {
+                matchingCoins = matchingCoins.AsQueryable().Where(x => x.Value == value).ToList();
+            }
+            if (year != null)
+            {
+                matchingCoins = matchingCoins.AsQueryable().Where(x => x.Year == year).ToList();
+            }
+            if (culture != null)
+            {
+                matchingCoins = matchingCoins.AsQueryable().Where(x => x.Culture == culture).ToList();
+            }
+            if (!string.IsNullOrEmpty(location) && location != Globals.LOCATION_DEFAULT_TEXT)
+            {
+                matchingCoins = matchingCoins.AsQueryable().Where(x => x.Location.LocationString == location).ToList();
+            }
+
+            foreach (var coinViewModel in matchingCoins)
+                coinViewModel.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

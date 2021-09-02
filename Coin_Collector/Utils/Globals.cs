@@ -6,6 +6,7 @@ namespace Coin_Collector.Utils
 {
     public static class Globals
     {
+        #region STATES_TOOLTIP
         public static string STATES_TOOLTIP =   "FDC : Fleur de coin\n" +
                                                 "Relief restant : 100%\n" +
                                                 "Pièce identifiable : oui\n" +
@@ -69,5 +70,8 @@ namespace Coin_Collector.Utils
                                                 "Absence de rayures : rayures visibles à l'œil\n" +
                                                 "Velours de frappe : non";
 
+        #endregion
+
+        public const string LOCATION_DEFAULT_TEXT = "Localisation...";
     }
 }

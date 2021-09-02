@@ -72,22 +72,22 @@ namespace Coin_Collector.Model
             return sb.ToString();
         }
 
-        //public static bool VerifyValue(string stringLocation)
-        //{
-        //    if (stringLocation.Length < 3)
-        //        return false;
-        //    if (!char.IsLetter(stringLocation[^1]) || !char.IsLetter(stringLocation[^2]))
-        //        return false;
-        //    if (stringLocation[0] == '0')
-        //        return false;
-        //    foreach(var pageChar in stringLocation[..^2])
-        //    {
-        //        if (!char.IsNumber(pageChar))
-        //            return false;
-        //    }
+        public static bool VerifyValue(string stringLocation)
+        {
+            if (stringLocation.Length < 3)
+                return false;
+            if (!char.IsLetter(stringLocation[^1]) || !char.IsLetter(stringLocation[^2]))
+                return false;
+            if (stringLocation[0] == '0')
+                return false;
+            foreach (var pageChar in stringLocation[..^2])
+            {
+                if (!char.IsNumber(pageChar))
+                    return false;
+            }
 
-        //    return true;
-        //}
+            return true;
+        }
 
         private int StringLocationToIntLocation(string location)
         {

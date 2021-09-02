@@ -34,7 +34,7 @@ namespace Coin_Collector
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
 
-            if (((MainViewModel)DataContext).SelectedCoin == null/* || Location.VerifyValue(SearchLocationTxtBox.Text)*/)
+            if (((MainViewModel)DataContext).SelectedCoin == null || Location.VerifyValue(LocationTxtBox.Text))
             {
                 Saver.Save(((MainViewModel)DataContext).GetCoinModels());
                 MessageBox.Show("Sauvegarde effectuée");
@@ -46,9 +46,7 @@ namespace Coin_Collector
         private void RemoveCoin_Click(object sender, RoutedEventArgs e)
         {
             var context = (MainViewModel)DataContext;
-            if (context.SelectedCoin == null)
-                MessageBox.Show("Veuillez sélectionner une monnaie !", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
-            else if (MessageBox.Show("Supprimer la monnaie ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Supprimer la monnaie ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             { 
                 context.RemoveCoin();
             }
@@ -65,7 +63,11 @@ namespace Coin_Collector
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            ((MainViewModel)DataContext).UpdateCoinsDiplay();
+            var value = (CoinValue)SearchValueCB.SelectedItem;
+            var year = (CoinYear)SearchYearCB.SelectedItem;
+            var culture = (CoinCulture)SearchCultureCB.SelectedItem;
+            var location = SearchLocationTxtBox.Text;
+            ((MainViewModel)DataContext).ApplySearchFilter(value, year, culture, location);
         }
 
         private void NewCoin_Click(object sender, RoutedEventArgs e)
@@ -89,12 +91,14 @@ namespace Coin_Collector
             SearchYearCB.SelectedItem = null;
             SearchCultureCB.SelectedItem = null;
             SearchStateCB.SelectedItem = null;
-            SearchLocationTxtBox.Text = "Localisation...";
+            SearchLocationTxtBox.Text = Globals.LOCATION_DEFAULT_TEXT;
         }
 
+
+        #region Focus Event SearchLocation
         private void SearchLocation_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (SearchLocationTxtBox.Text == "Localisation...")
+            if (SearchLocationTxtBox.Text == Globals.LOCATION_DEFAULT_TEXT)
             {
                 SearchLocationTxtBox.Text = "";
                 SearchLocationTxtBox.Foreground = Brushes.Black;
@@ -105,9 +109,10 @@ namespace Coin_Collector
         {
             if(SearchLocationTxtBox.Text == "")
             {
-                SearchLocationTxtBox.Text = "Localisation...";
+                SearchLocationTxtBox.Text = Globals.LOCATION_DEFAULT_TEXT;
                 SearchLocationTxtBox.Foreground = Brushes.Gray;
             }
         }
+        #endregion
     }
 }
