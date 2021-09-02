@@ -9,26 +9,25 @@ namespace Coin_Collector.Utils
 {
     public static class Saver
     {
-        private const string FILENAME = "save.json";
+        private const string FILEPATH = "save.json";
         public static void Save(List<Coin> coinList)
         {
-            
-
             var options = new JsonSerializerOptions()
             {
                 WriteIndented = true,
             };
             var json = JsonSerializer.Serialize(coinList, options);
 
-            File.WriteAllText(FILENAME, json);
+            File.WriteAllText(FILEPATH, json);
         }
 
         public static List<Coin> Load()
         {
-            if (File.Exists(FILENAME))
-                return JsonSerializer.Deserialize<List<Coin>>(FILENAME);
+            if (File.Exists(FILEPATH))
+                return JsonSerializer.Deserialize<List<Coin>>(File.ReadAllText(FILEPATH));
             else
                 return new List<Coin>();
         }
     }
 }
+ 

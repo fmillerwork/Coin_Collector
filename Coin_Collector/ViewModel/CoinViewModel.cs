@@ -3,55 +3,60 @@ using Coin_Collector.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using static Coin_Collector.Model.Coin;
 
 namespace Coin_Collector.ViewModel
 {
     public class CoinViewModel : Observable
     {
-        private Coin _model;
+        public Coin Model { get; }
 
-        public CoinViewModel(Coin model)
+        public CoinViewModel(Coin newModel)
         {
-            _model = model;
+            Model = newModel;
         }
 
-        public string Value
+        public CoinValue Value
         {
-            get => _model.Value;
-            set { _model.Value = value; OnPropertyChanged();}
+            get => Model.Value;
+            set { Model.Value = value; OnPropertyChanged();}
         }
 
-        public string Year
+        public CoinYear Year
         {
-            get => _model.Year;
-            set { _model.Year = value; OnPropertyChanged(); }
+            get => Model.Year;
+            set { Model.Year = value; OnPropertyChanged(); }
         }
 
-        public string Culture
+        public CoinCulture Culture
         {
-            get => _model.Culture;
-            set { _model.Culture = value; OnPropertyChanged(); }
+            get => Model.Culture;
+            set { Model.Culture = value; OnPropertyChanged(); }
         }
 
-        public Location Localisation
+        public Location Location
         {
-            get => _model.Location;
-            set { _model.Location = value; OnPropertyChanged(); }
+            get => Model.Location;
+            set { Model.Location = value; OnPropertyChanged(); }
         }
         public string Description
         {
-            get => _model.Description;
-            set { _model.Description = value; OnPropertyChanged(); }
+            get => Model.Description;
+            set { Model.Description = value; OnPropertyChanged(); }
         }
 
-        public string State
+        public CoinState State
         {
-            get => _model.State;
-            set { _model.State = value; OnPropertyChanged(); }
+            get => Model.State;
+            set { Model.State = value; OnPropertyChanged(); }
         }
 
-
-
+        private Visibility visibility;
+        public Visibility Visibility 
+        { 
+            get => visibility; 
+            set => SetProperty(ref visibility, value); 
+        }
     }
 }

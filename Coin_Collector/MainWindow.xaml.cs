@@ -1,4 +1,6 @@
-﻿using Coin_Collector.View;
+﻿using Coin_Collector.Model;
+using Coin_Collector.Utils;
+using Coin_Collector.View;
 using Coin_Collector.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -31,17 +33,39 @@ namespace Coin_Collector
 
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+
+            if (((MainViewModel)DataContext).SelectedCoin == null/* || Location.VerifyValue(SearchLocationTxtBox.Text)*/)
+            {
+                Saver.Save(((MainViewModel)DataContext).GetCoinModels());
+                MessageBox.Show("Sauvegarde effectuée");
+            }
+            else
+                MessageBox.Show("Veuilliez vérifier les informations dans le champs Localisation !", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private void RemoveCoin_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            var context = (MainViewModel)DataContext;
+            if (context.SelectedCoin == null)
+                MessageBox.Show("Veuillez sélectionner une monnaie !", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
+            else if (MessageBox.Show("Supprimer la monnaie ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            { 
+                context.RemoveCoin();
+            }
+        }
+        
+        private void RemoveCoin_ListClick(object sender, RoutedEventArgs e)
+        {
+            if(sender is Button btn)
+            {
+                if (MessageBox.Show("Supprimer la monnaie ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    ((MainViewModel)DataContext).RemoveCoin((CoinViewModel)btn.DataContext);
+            }
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            ((MainViewModel)DataContext).UpdateCoinsDiplay();
         }
 
         private void NewCoin_Click(object sender, RoutedEventArgs e)
@@ -56,9 +80,34 @@ namespace Coin_Collector
             }
         }
 
+        private void ResetSearch_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO
+            ((MainViewModel)DataContext).ResetCoinsVisibility();
 
+            SearchValueCB.SelectedItem = null;
+            SearchYearCB.SelectedItem = null;
+            SearchCultureCB.SelectedItem = null;
+            SearchStateCB.SelectedItem = null;
+            SearchLocationTxtBox.Text = "Localisation...";
+        }
 
+        private void SearchLocation_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (SearchLocationTxtBox.Text == "Localisation...")
+            {
+                SearchLocationTxtBox.Text = "";
+                SearchLocationTxtBox.Foreground = Brushes.Black;
+            }
+        }
 
-
+        private void SearchLocation_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(SearchLocationTxtBox.Text == "")
+            {
+                SearchLocationTxtBox.Text = "Localisation...";
+                SearchLocationTxtBox.Foreground = Brushes.Gray;
+            }
+        }
     }
 }

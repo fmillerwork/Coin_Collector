@@ -5,67 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coin_Collector.View"
         mc:Ignorable="d"
-        Title="NewCoinWindow" Closing="Window_Closing" Height="250" Width="200" MaxHeight="250" MaxWidth="200" MinHeight="250" MinWidth="200">
+        Title="NewCoinWindow" Closing="Window_Closing" Height="354" Width="180" >
     <StackPanel Margin="4">
-        <ComboBox x:Name="ValueCB" Margin="4" SelectedIndex="0">
-            <ComboBoxItem>2€</ComboBoxItem>
-            <ComboBoxItem>1€</ComboBoxItem>
-            <ComboBoxItem>0.50€</ComboBoxItem>
-            <ComboBoxItem>0.20€</ComboBoxItem>
-            <ComboBoxItem>0.10€</ComboBoxItem>
-            <ComboBoxItem>0.05€</ComboBoxItem>
-            <ComboBoxItem>0.02€</ComboBoxItem>
-            <ComboBoxItem>0.01€</ComboBoxItem>
-        </ComboBox>
-        <ComboBox x:Name="YearCB" Margin="4" SelectedIndex="0">
-            <ComboBoxItem>2021</ComboBoxItem>
-            <ComboBoxItem>2020</ComboBoxItem>
-            <ComboBoxItem>2019</ComboBoxItem>
-            <ComboBoxItem>2018</ComboBoxItem>
-            <ComboBoxItem>2017</ComboBoxItem>
-            <ComboBoxItem>2016</ComboBoxItem>
-            <ComboBoxItem>2015</ComboBoxItem>
-            <ComboBoxItem>2014</ComboBoxItem>
-            <ComboBoxItem>2013</ComboBoxItem>
-            <ComboBoxItem>2012</ComboBoxItem>
-            <ComboBoxItem>2011</ComboBoxItem>
-            <ComboBoxItem>2010</ComboBoxItem>
-            <ComboBoxItem>2009</ComboBoxItem>
-            <ComboBoxItem>2008</ComboBoxItem>
-            <ComboBoxItem>2007</ComboBoxItem>
-            <ComboBoxItem>2005</ComboBoxItem>
-            <ComboBoxItem>2004</ComboBoxItem>
-            <ComboBoxItem>2003</ComboBoxItem>
-            <ComboBoxItem>2002</ComboBoxItem>
-        </ComboBox>
-        <ComboBox x:Name="CultureCB" Margin="4" SelectedIndex="8">
-            <ComboBoxItem>Allemagne</ComboBoxItem>
-            <ComboBoxItem>Andorre</ComboBoxItem>
-            <ComboBoxItem>Autriche</ComboBoxItem>
-            <ComboBoxItem>Belgique</ComboBoxItem>
-            <ComboBoxItem>Chypre</ComboBoxItem>
-            <ComboBoxItem>Estonie</ComboBoxItem>
-            <ComboBoxItem>Espagne</ComboBoxItem>
-            <ComboBoxItem>Finlande</ComboBoxItem>
-            <ComboBoxItem>France</ComboBoxItem>
-            <ComboBoxItem>Grèce</ComboBoxItem>
-            <ComboBoxItem>Italie</ComboBoxItem>
-            <ComboBoxItem>Irlande</ComboBoxItem>
-            <ComboBoxItem>Lettonie</ComboBoxItem>
-            <ComboBoxItem>Lituanie</ComboBoxItem>
-            <ComboBoxItem>Luxembourg</ComboBoxItem>
-            <ComboBoxItem>Malte</ComboBoxItem>
-            <ComboBoxItem>Monaco</ComboBoxItem>
-            <ComboBoxItem>Pays-Bas</ComboBoxItem>
-            <ComboBoxItem>Portugal</ComboBoxItem>
-            <ComboBoxItem>Saint-Marin</ComboBoxItem>
-            <ComboBoxItem>Slovaquie</ComboBoxItem>
-            <ComboBoxItem>Slovénie</ComboBoxItem>
-            <ComboBoxItem>Vatican</ComboBoxItem>
-        </ComboBox>
-        <ComboBox x:Name="StateCB" Margin="4" SelectedIndex="3">
-            <ComboBox.ToolTip>
-                <TextBlock>
+        <Grid Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" FontWeight="SemiBold">Valeur</Label>
+            <ComboBox Grid.Column="1" Grid.Row="0" x:Name="ValueCB" Margin="4" SelectedIndex="0" ItemsSource="{Binding CoinValues}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Value}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Grid.Column="0" Grid.Row="1" FontWeight="SemiBold">Année</Label>
+            <ComboBox Grid.Column="1" Grid.Row="1" x:Name="YearCB" Margin="4" SelectedIndex="0" ItemsSource="{Binding CoinYears}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Year}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Grid.Column="0" Grid.Row="2" FontWeight="SemiBold">Culture</Label>
+            <ComboBox Grid.Column="1" Grid.Row="2" x:Name="CultureCB" Margin="4" SelectedIndex="8" ItemsSource="{Binding CoinCultures}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Culture}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Grid.Column="0" Grid.Row="3" FontWeight="SemiBold">État</Label>
+            <ComboBox Grid.Column="1" Grid.Row="3" x:Name="StateCB" Margin="4" SelectedIndex="3" ItemsSource="{Binding CoinStates}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding State}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <ComboBox.ToolTip>
+                    <TextBlock>
                     AB : Assez beau
                     | Relief restant : 10%
                     | Pièce identifiable : difficilement
@@ -128,39 +114,18 @@
                     | Absence de chocs : oui
                     | Absence de rayures : oui
                     | Velours de frappe : oui
-                </TextBlock>
-            </ComboBox.ToolTip>
-            <ComboBoxItem>FDC</ComboBoxItem>
-            <ComboBoxItem>SPL</ComboBoxItem>
-            <ComboBoxItem>SUP</ComboBoxItem>
-            <ComboBoxItem>TTB</ComboBoxItem>
-            <ComboBoxItem>TB</ComboBoxItem>
-            <ComboBoxItem>B</ComboBoxItem>
-            <ComboBoxItem>AB</ComboBoxItem>
-        </ComboBox>
-        <TextBox x:Name="DescriptionTxtBox" Margin="4" Text="Desciption"></TextBox>
-        <Grid Margin="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <TextBox IsReadOnly="True" Margin="4" Grid.Column="0" ToolTip="Numéro de page"/>
-            <ComboBox Margin="4" Grid.Column="1" ToolTip="Numéro de ligne">
-                <ComboBoxItem>A</ComboBoxItem>
-                <ComboBoxItem>B</ComboBoxItem>
-                <ComboBoxItem>C</ComboBoxItem>
-                <ComboBoxItem>D</ComboBoxItem>
-                <ComboBoxItem>E</ComboBoxItem>
-            </ComboBox>
-            <ComboBox Margin="4" Grid.Column="2" ToolTip="Numéro de colonne" SelectedValue="A">
-                <ComboBoxItem>A</ComboBoxItem>
-                <ComboBoxItem>B</ComboBoxItem>
-                <ComboBoxItem>C</ComboBoxItem>
-                <ComboBoxItem>D</ComboBoxItem>
+                    </TextBlock>
+                </ComboBox.ToolTip>
             </ComboBox>
         </Grid>
+        <Label FontWeight="SemiBold" HorizontalAlignment="Center" Margin="4,4,4,0">Description</Label>
+        <TextBox x:Name="DescriptionTxtBox" Margin="4,0,4,4" Height="50" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"></TextBox>
         
+        <Label FontWeight="SemiBold" HorizontalAlignment="Center" Margin="4,4,4,0">Localisation</Label>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="4,0,4,4" >
+            <TextBlock Text="{Binding NextLocation}"></TextBlock>
+        </Border>
+
         <Button Margin="4" Click="AddCoin_Click">Ajouter</Button>
     </StackPanel>
 </Window>

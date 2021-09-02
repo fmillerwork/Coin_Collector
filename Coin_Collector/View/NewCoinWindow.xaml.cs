@@ -1,4 +1,6 @@
-﻿using Coin_Collector.ViewModel;
+﻿using Coin_Collector.Model;
+using Coin_Collector.Utils;
+using Coin_Collector.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,7 +35,10 @@ namespace Coin_Collector.View
 
         private void AddCoin_Click(object sender, RoutedEventArgs e)
         {
-            ((MainViewModel)DataContext).AddCoin(ValueCB.Text, YearCB.Text, CultureCB.Text, DescriptionTxtBox.Text, StateCB.Text);
+            var context = (MainViewModel)DataContext;
+            context.AddCoin((CoinValue)ValueCB.SelectedItem, (CoinYear)YearCB.SelectedItem, (CoinCulture)CultureCB.SelectedItem, DescriptionTxtBox.Text, (CoinState)StateCB.SelectedItem);
+            Saver.Save(context.GetCoinModels());
+            Close();
         }
     }
 }
