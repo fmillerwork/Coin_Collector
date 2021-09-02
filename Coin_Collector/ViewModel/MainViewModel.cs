@@ -88,87 +88,31 @@ namespace Coin_Collector.ViewModel
             {
                 new CoinState() 
                 { 
-                    State = "FDC", 
-                    StateDescription = "FDC : Fleur de coin\n" +
-                                        "Relief restant : 100%\n" +
-                                        "Pièce identifiable : oui\n" +
-                                        "Légendes lisibles : oui\n" +
-                                        "Reliefs complets : oui\n" +
-                                        "Absence de chocs : oui\n" +
-                                        "Absence de rayures : oui\n" +
-                                        "Velours de frappe : oui"
+                    State = "FDC"
                 },
                 new CoinState() 
                 { 
-                    State = "SPL",
-                    StateDescription = "SPL : Splendide\n" +
-                                        "Relief restant : 100%\n" +
-                                        "Pièce identifiable : oui\n" +
-                                        "Légendes lisibles : oui\n" +
-                                        "Reliefs complets : oui\n" +
-                                        "Absence de chocs : oui\n" +
-                                        "Absence de rayures : oui\n" +
-                                        "Velours de frappe : oui, sauf sur les points hauts"
+                    State = "SPL"
                 },
                 new CoinState() 
                 { 
-                    State = "SUP",
-                    StateDescription = "SUP : Superbe\n" +
-                                        "Relief restant : 90%\n" +
-                                        "Pièce identifiable : oui\n" +
-                                        "Légendes lisibles : oui\n" +
-                                        "Reliefs complets : oui\n" +
-                                        "Absence de chocs : oui\n" +
-                                        "Absence de rayures : éraflures visibles à la loupe\n" +
-                                        "Velours de frappe : léger"
+                    State = "SUP"
                 },
                 new CoinState() 
                 { 
-                    State = "TTB",
-                    StateDescription = "TTB : Très très beau\n" +
-                                        "Relief restant : 75%\n" +
-                                        "Pièce identifiable : oui\n" +
-                                        "Légendes lisibles : oui\n" +
-                                        "Reliefs complets : oui\n" +
-                                        "Absence de chocs : oui\n" +
-                                        "Absence de rayures : rayures visibles à l'œil\n" +
-                                        "Velours de frappe : non"
+                    State = "TTB"
                 },
                 new CoinState() 
                 { 
-                    State = "TB",
-                    StateDescription = "TB : Très beau\n" +
-                                        "Relief restant : 50%\n" +
-                                        "Pièce identifiable : oui\n" +
-                                        "Légendes lisibles : oui\n" +
-                                        "Reliefs complets : reliefs partiels\n" +
-                                        "Absence de chocs : non\n" +
-                                        "Absence de rayures : rayures visibles à l'œil\n" +
-                                        "Velours de frappe : non"
+                    State = "TB"
                 },
                 new CoinState() 
                 { 
-                    State = "B",
-                    StateDescription = "B : Beau\n" +
-                                        "Relief restant : 25 %\n" +
-                                        "Pièce identifiable : oui\n" +
-                                        "Légendes lisibles : difficilement\n" +
-                                        "Reliefs complets : non\n" +
-                                        "Absence de chocs : non\n" +
-                                        "Absence de rayures : rayures visibles à l'œil\n" +
-                                        "Velours de frappe : non"
+                    State = "B"
                 },
                 new CoinState() 
                 {
-                    State = "AB",
-                    StateDescription = "AB : Assez beau\n" +
-                                        "Relief restant : 10%\n" +
-                                        "Pièce identifiable : difficilement\n" +
-                                        "Légendes lisibles : non\n" +
-                                        "Reliefs complets : non\n" +
-                                        "Absence de chocs : non\n" +
-                                        "Absence de rayures : rayures visibles à l'œil\n" +
-                                        "Velours de frappe : non"
+                    State = "AB"
                 },
             };
             #endregion
@@ -200,6 +144,8 @@ namespace Coin_Collector.ViewModel
         {
             get => SelectedCoin != null;
         }
+
+        public string ComboBoxToolTip { get => Globals.STATES_TOOLTIP; }
 
         public void AddCoin(CoinValue value, CoinYear year, CoinCulture culture, string description, CoinState state)
         {

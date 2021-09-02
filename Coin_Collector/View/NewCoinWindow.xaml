@@ -44,78 +44,12 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Label Grid.Column="0" Grid.Row="3" FontWeight="SemiBold">État</Label>
-            <ComboBox Grid.Column="1" Grid.Row="3" x:Name="StateCB" Margin="4" SelectedIndex="3" ItemsSource="{Binding CoinStates}">
+            <ComboBox Grid.Column="1" Grid.Row="3" x:Name="StateCB" Margin="4" SelectedIndex="3" ItemsSource="{Binding CoinStates}" ToolTip="{Binding ComboBoxToolTip}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding State}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
-                <ComboBox.ToolTip>
-                    <TextBlock>
-                    AB : Assez beau
-                    | Relief restant : 10%
-                    | Pièce identifiable : difficilement
-                    | Légendes lisibles : non
-                    | Reliefs complets : non
-                    | Absence de chocs : non
-                    | Absence de rayures : rayures visibles à l'œil 
-                    | Velours de frappe : non
-                    <LineBreak /> 
-                    B : Beau
-                    | Relief restant : 25 %
-                    | Pièce identifiable : oui
-                    | Légendes lisibles : difficilement
-                    | Reliefs complets : non
-                    | Absence de chocs : non
-                    | Absence de rayures : rayures visibles à l'œil
-                    | Velours de frappe : non
-                    <LineBreak /> 
-                    TB : Très beau
-                    | Relief restant : 50%
-                    | Pièce identifiable : difficilement
-                    | Légendes lisibles : non
-                    | Reliefs complets : reliefs partiels
-                    | Absence de chocs : non
-                    | Absence de rayures : rayures visibles à l'œil
-                    | Velours de frappe : non
-                    <LineBreak /> 
-                    TTB : Très très beau
-                    | Relief restant : 75%
-                    | Pièce identifiable : difficilement
-                    | Légendes lisibles : non
-                    | Reliefs complets : oui
-                    | Absence de chocs : oui
-                    | Absence de rayures : rayures visibles à l'œil
-                    | Velours de frappe : non
-                    <LineBreak /> 
-                    SUP : Superbe
-                    | Relief restant : 90%
-                    | Pièce identifiable : difficilement
-                    | Légendes lisibles : non
-                    | Reliefs complets : oui
-                    | Absence de chocs : oui
-                    | Absence de rayures : éraflures visibles à la loupe
-                    | Velours de frappe : léger
-                    <LineBreak /> 
-                    SPL : Splendide
-                    | Relief restant : 100%
-                    | Pièce identifiable : oui
-                    | Légendes lisibles : oui
-                    | Reliefs complets : oui
-                    | Absence de chocs : oui
-                    | Absence de rayures : oui
-                    | Velours de frappe : oui, sauf sur les points hauts
-                    <LineBreak /> 
-                    FDC : Fleur de coin
-                    | Relief restant : 100%
-                    | Pièce identifiable : oui
-                    | Légendes lisibles : oui
-                    | Reliefs complets : oui
-                    | Absence de chocs : oui
-                    | Absence de rayures : oui
-                    | Velours de frappe : oui
-                    </TextBlock>
-                </ComboBox.ToolTip>
             </ComboBox>
         </Grid>
         <Label FontWeight="SemiBold" HorizontalAlignment="Center" Margin="4,4,4,0">Description</Label>
