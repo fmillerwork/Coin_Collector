@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coin_Collector"
         mc:Ignorable="d"
-        Title="Coin Manager" Height="700" Width="520" MaxHeight="700" MinHeight="700" MaxWidth="520" MinWidth="520">
+        Title="Coin Collector" Height="700" Width="520" MaxHeight="700" MinHeight="700" MaxWidth="520" MinWidth="520">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12*"></ColumnDefinition>
