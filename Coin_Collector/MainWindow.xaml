@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coin_Collector"
         mc:Ignorable="d"
-        Title="Coin Collector" Height="700" Width="520" MaxHeight="700" MinHeight="700" MaxWidth="520" MinWidth="520">
+        Title="Coin Collector" Height="780" Width="520" MaxHeight="780" MinHeight="780" MaxWidth="520" MinWidth="520">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12*"></ColumnDefinition>
@@ -54,6 +54,8 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
+                        <Label FontWeight="Bold" Margin="4,4,4,0">Description</Label>
+                        <TextBox x:Name="SearchDescriptionTxtBox" Margin="4,0,4,4" HorizontalScrollBarVisibility="Auto"></TextBox>
                         <TextBox x:Name="SearchLocationTxtBox" Margin="4" Text="Localisation..." Foreground="Gray" GotFocus="SearchLocation_GotFocus" LostFocus="SearchLocation_LostFocus" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button Margin="4" Padding="8,4" Click="Search_Click" FontSize="13" FontWeight="DemiBold" Width="109">Rechercher</Button>
@@ -96,9 +98,9 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                        <TextBox x:Name="LocationTxtBox" Margin="4" Text="{Binding SelectedCoin.Location.LocationString}" IsEnabled="{Binding CBIsEnabled}" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox>
+                        <TextBox x:Name="LocationTxtBox" Margin="4" Text="{Binding SelectedCoin.Location.LocationString, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CBIsEnabled}" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox>
                         <Label HorizontalAlignment="Center" Margin="4,4,4,0">Description</Label>
-                        <TextBox x:Name="DescriptionTxtBox" Margin="4,0,4,4" Height="50" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding SelectedCoin.Description}" IsEnabled="{Binding CBIsEnabled}"></TextBox>
+                        <TextBox x:Name="DescriptionTxtBox" Margin="4,0,4,4" Height="50" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding SelectedCoin.Description, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CBIsEnabled}"></TextBox>
                         <Button Grid.Column="1" Margin="4" Padding="8,4" FontSize="13" FontWeight="DemiBold" Click="RemoveCoin_Click" IsEnabled="{Binding CBIsEnabled}">Supprimer</Button>
                         
                     </StackPanel>
@@ -117,10 +119,11 @@
                     <ListBox ItemsSource="{Binding Coins}" SelectedItem="{Binding SelectedCoin}" BorderThickness="0" Margin="0,4,0,0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border Visibility="{Binding Visibility}" BorderThickness="1" BorderBrush="Black" CornerRadius="3" Background="LightYellow">
+                                <Border Visibility="{Binding Visibility}" BorderThickness="1" BorderBrush="Black" CornerRadius="3" Background="LightYellow" Width="221">
                                     <StackPanel>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
@@ -138,6 +141,8 @@
                                             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Culture.Culture}" Margin="4" FontWeight="SemiBold"/>
                                             <Label Grid.Row="3" Grid.Column="0">Localisation</Label>
                                             <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Location.LocationString}" Margin="4" FontWeight="SemiBold"/>
+                                            <Label Grid.Row="0" Grid.Column="2">Description</Label>
+                                            <TextBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" Text="{Binding Description}" Margin="4" FontWeight="SemiBold" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" MaxHeight="70"/>
                                             <!--<Button Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Click="RemoveCoin_ListClick">
                                         <Image Height="20" Source="Images\remove.png"></Image>
                                     </Button>-->

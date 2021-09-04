@@ -67,7 +67,8 @@ namespace Coin_Collector
             var year = (CoinYear)SearchYearCB.SelectedItem;
             var culture = (CoinCulture)SearchCultureCB.SelectedItem;
             var location = SearchLocationTxtBox.Text;
-            ((MainViewModel)DataContext).ApplySearchFilter(value, year, culture, location);
+            var description = SearchDescriptionTxtBox.Text;
+            ((MainViewModel)DataContext).ApplySearchFilter(value, year, culture, location, description);
         }
 
         private void NewCoin_Click(object sender, RoutedEventArgs e)
@@ -91,6 +92,7 @@ namespace Coin_Collector
             SearchYearCB.SelectedItem = null;
             SearchCultureCB.SelectedItem = null;
             SearchStateCB.SelectedItem = null;
+            SearchDescriptionTxtBox.Text = Globals.DESCRIPTION_DEFAULT_TEXT;
             SearchLocationTxtBox.Text = Globals.LOCATION_DEFAULT_TEXT;
         }
 

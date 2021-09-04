@@ -73,5 +73,6 @@ namespace Coin_Collector.Utils
         #endregion
 
         public const string LOCATION_DEFAULT_TEXT = "Localisation...";
+        public const string DESCRIPTION_DEFAULT_TEXT = "Description...";
     }
 }

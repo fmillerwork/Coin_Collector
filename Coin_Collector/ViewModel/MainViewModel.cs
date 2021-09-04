@@ -192,7 +192,7 @@ namespace Coin_Collector.ViewModel
             }
         }
 
-        public void ApplySearchFilter(CoinValue value, CoinYear year, CoinCulture culture, string location)
+        public void ApplySearchFilter(CoinValue value, CoinYear year, CoinCulture culture, string location, string description)
         {
             foreach (var coinViewModel in Coins)
                 coinViewModel.Visibility = System.Windows.Visibility.Collapsed;
@@ -213,6 +213,10 @@ namespace Coin_Collector.ViewModel
             if (!string.IsNullOrEmpty(location) && location != Globals.LOCATION_DEFAULT_TEXT)
             {
                 matchingCoins = matchingCoins.AsQueryable().Where(x => x.Location.LocationString == location).ToList();
+            }
+            if (!string.IsNullOrEmpty(description) && description != Globals.DESCRIPTION_DEFAULT_TEXT)
+            {
+                matchingCoins = matchingCoins.AsQueryable().Where(x => x.Description.Contains(description)).ToList();
             }
 
             foreach (var coinViewModel in matchingCoins)
