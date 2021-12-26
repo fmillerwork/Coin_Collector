@@ -11,7 +11,10 @@ namespace Coin_Collector.Model
 
         public Location()
         {
-            locationCount++;
+            //if (locationCount > LocationNumber)
+            //    locationCount = LocationNumber;
+            //else
+                locationCount++;
             LocationNumber = locationCount;
         }
 
@@ -33,26 +36,29 @@ namespace Coin_Collector.Model
         {
             var sb = new StringBuilder();
 
-            sb.Append(location / 20 + 1);
+            // Page
+            sb.Append(location / 21 + 1);
+
             // Ligne
-            switch (location % 20 / 5 + 1)
+            switch ((location - 1) % 20 / 4)
             {
-                case 1:
+                case 0:
                     sb.Append("A");
                     break;
-                case 2:
+                case 1:
                     sb.Append("B");
                     break;
-                case 3:
+                case 2:
                     sb.Append("C");
                     break;
-                case 4:
+                case 3:
                     sb.Append("D");
                     break;
-                case 0:
+                case 4:
                     sb.Append("E");
                     break;
             }
+
             // Colonne
             switch (location % 20 % 4)
             {
@@ -72,6 +78,11 @@ namespace Coin_Collector.Model
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Verify string location value.
+        /// </summary>
+        /// <param name="stringLocation"></param>
+        /// <returns></returns>
         public static bool VerifyValue(string stringLocation)
         {
             if (stringLocation.Length < 3)
