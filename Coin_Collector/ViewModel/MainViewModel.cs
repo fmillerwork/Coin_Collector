@@ -51,6 +51,7 @@ namespace Coin_Collector.ViewModel
                 new CoinYear() { Year = "2009"},
                 new CoinYear() { Year = "2008"},
                 new CoinYear() { Year = "2007"},
+                new CoinYear() { Year = "2006"},
                 new CoinYear() { Year = "2005"},
                 new CoinYear() { Year = "2004"},
                 new CoinYear() { Year = "2003"},
