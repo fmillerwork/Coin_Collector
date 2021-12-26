@@ -54,8 +54,7 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                        <Label FontWeight="Bold" Margin="4,4,4,0">Description</Label>
-                        <TextBox x:Name="SearchDescriptionTxtBox" Margin="4,0,4,4" HorizontalScrollBarVisibility="Auto"></TextBox>
+                        <TextBox x:Name="SearchDescriptionTxtBox" Margin="4,0,4,4" Text="Description..." Foreground="Gray" GotFocus="SearchDescription_GotFocus" LostFocus="SearchDescription_LostFocus" HorizontalScrollBarVisibility="Auto"></TextBox>
                         <TextBox x:Name="SearchLocationTxtBox" Margin="4" Text="Localisation..." Foreground="Gray" GotFocus="SearchLocation_GotFocus" LostFocus="SearchLocation_LostFocus" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button Margin="4" Padding="8,4" Click="Search_Click" FontSize="13" FontWeight="DemiBold" Width="109">Rechercher</Button>

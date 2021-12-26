@@ -97,7 +97,7 @@ namespace Coin_Collector
         }
 
 
-        #region Focus Event SearchLocation
+        #region Focus Event
         private void SearchLocation_GotFocus(object sender, RoutedEventArgs e)
         {
             if (SearchLocationTxtBox.Text == Globals.LOCATION_DEFAULT_TEXT)
@@ -113,6 +113,24 @@ namespace Coin_Collector
             {
                 SearchLocationTxtBox.Text = Globals.LOCATION_DEFAULT_TEXT;
                 SearchLocationTxtBox.Foreground = Brushes.Gray;
+            }
+        }
+        
+        private void SearchDescription_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (SearchDescriptionTxtBox.Text == Globals.DESCRIPTION_DEFAULT_TEXT)
+            {
+                SearchDescriptionTxtBox.Text = "";
+                SearchDescriptionTxtBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void SearchDescription_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(SearchDescriptionTxtBox.Text == "")
+            {
+                SearchDescriptionTxtBox.Text = Globals.DESCRIPTION_DEFAULT_TEXT;
+                SearchDescriptionTxtBox.Foreground = Brushes.Gray;
             }
         }
         #endregion
