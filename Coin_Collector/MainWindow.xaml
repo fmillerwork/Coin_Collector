@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coin_Collector"
         mc:Ignorable="d"
-        Title="Coin Collector" Height="780" Width="600" MaxHeight="780" MinHeight="780" MaxWidth="600" MinWidth="600">
+        Title="Coin Collector" Height="780" Width="630" MaxHeight="780" MinHeight="780" MaxWidth="630" MinWidth="630">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12*"></ColumnDefinition>
@@ -118,7 +118,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="Auto">
-                            <Border Visibility="{Binding Visibility}" BorderThickness="1" BorderBrush="Black" CornerRadius="2" Background="LightYellow" Width="270" MaxWidth="270">
+                            <Border Visibility="{Binding Visibility}" BorderThickness="1" BorderBrush="Black" CornerRadius="2" Background="LightYellow" Width="267" MaxWidth="267">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -146,7 +146,4 @@
             </ListBox>
         </DockPanel>
     </Grid>
-
-
-
 </Window>
