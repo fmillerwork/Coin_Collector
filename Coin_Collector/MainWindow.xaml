@@ -98,7 +98,7 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                        <TextBox x:Name="LocationTxtBox" Margin="4" Text="{Binding SelectedCoin.Location.LocationString, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox> <!--IsEnabled="{Binding CBIsEnabled}"-->
+                        <TextBox x:Name="LocationTxtBox" Margin="4" Text="{Binding SelectedCoin.Location.LocationString, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CBIsEnabled}" ToolTip="Ex : 1BC = Page 1, Ligne B (2) et Colonne C (3)"></TextBox>
                         <Label HorizontalAlignment="Center" Margin="4,4,4,0">Description</Label>
                         <TextBox x:Name="DescriptionTxtBox" Margin="4,0,4,4" Height="50" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding SelectedCoin.Description, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CBIsEnabled}"></TextBox>
                         <Button Grid.Column="1" Margin="4" Padding="8,4" FontSize="13" FontWeight="DemiBold" Click="RemoveCoin_Click" IsEnabled="False">Supprimer</Button> <!--IsEnabled="{Binding CBIsEnabled}"-->
